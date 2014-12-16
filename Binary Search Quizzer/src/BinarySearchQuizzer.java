@@ -39,7 +39,31 @@ public class BinarySearchQuizzer
 		System.out.println("");
 		
 		int ran = (int)(Math.random()*(elements.size()));
-		int target =
+		int target = (int) elements.get(ran);
+		System.out.println("The target is "+target+".");
+		
+		int numCorrect=0;
+		int numQuestion=0;
+		int left = 0;
+		int right = (int)elements.size()-1;
+		while (left <= right)
+			{
+			
+			int middle = (left + right) / 2;
+			if (target < (int)elements.get(middle))
+				{
+				right = middle-1;
+				}
+			else if (target > (int)elements.get(middle))
+				{
+				left = middle + 1;
+				}
+			else
+				{
+				System.out.println(middle);
+				}
+			}
+		System.out.println(elements.get(-1));
 		}
 
 

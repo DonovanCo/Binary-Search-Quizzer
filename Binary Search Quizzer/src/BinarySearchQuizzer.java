@@ -1,11 +1,14 @@
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BinarySearchQuizzer
 	{
+	static int numCorrect=0;
+	static int numQuestion=0;
 	
-	public static void quizzer()
+	public static int quizzer()
 		{
 		Scanner filler = new Scanner(System.in);
 		System.out.println("Enter a list of numbers between 1 and 20. Enter -1 when you wish to stop.");
@@ -16,7 +19,7 @@ public class BinarySearchQuizzer
 			int a = filler.nextInt();
 			if((a>=1&&a<=20))
 				{
-				elements.add(a);
+				elements.add((int)a);
 				}
 			else if(a==-1)
 				{
@@ -42,14 +45,84 @@ public class BinarySearchQuizzer
 		int target = (int) elements.get(ran);
 		System.out.println("The target is "+target+".");
 		
-		int numCorrect=0;
-		int numQuestion=0;
+		int pass = 1;
+		int choice;
 		int left = 0;
 		int right = (int)elements.size()-1;
 		while (left <= right)
 			{
+			System.out.println("What pass number is this?");
+			choice = filler.nextInt();
+			if(choice==pass)
+				{
+					System.out.println("Correct!");
+					numQuestion+=1;
+					numCorrect+=1;
+				}
+			else
+				{
+				System.out.println("Incorrect!");
+				numQuestion+=1;
+				}
+			
+			System.out.println("What is the farthest left index in the search?");
+			choice = filler.nextInt();
+			if(choice==left)
+				{
+					System.out.println("Correct!");
+					numQuestion+=1;
+					numCorrect+=1;
+				}
+			else
+				{
+				System.out.println("Incorrect!");
+				numQuestion+=1;
+				}
+			
+			System.out.println("What is the farthest right index in the search?");
+			choice = filler.nextInt();
+			if(choice==right)
+				{
+					System.out.println("Correct!");
+					numQuestion+=1;
+					numCorrect+=1;
+				}
+			else
+				{
+				System.out.println("Incorrect!");
+				numQuestion+=1;
+				}
 			
 			int middle = (left + right) / 2;
+			
+			System.out.println("What is the middle index in the search?");
+			choice = filler.nextInt();
+			if(choice==middle)
+				{
+					System.out.println("Correct!");
+					numQuestion+=1;
+					numCorrect+=1;
+				}
+			else
+				{
+				System.out.println("Incorrect!");
+				numQuestion+=1;
+				}
+			
+			System.out.println("What is the value of the middle index in the search?");
+			choice = filler.nextInt();
+			if(choice==(int)elements.get(middle))
+				{
+					System.out.println("Correct!");
+					numQuestion+=1;
+					numCorrect+=1;
+				}
+			else
+				{
+				System.out.println("Incorrect!");
+				numQuestion+=1;
+				}
+			
 			if (target < (int)elements.get(middle))
 				{
 				right = middle-1;
@@ -60,17 +133,20 @@ public class BinarySearchQuizzer
 				}
 			else
 				{
-				System.out.println(middle);
+				return middle;
 				}
+			pass+=1;
 			}
-		System.out.println(elements.get(-1));
+		
+		return -1;
+		
 		}
 
 
 	public static void main(String[] args)
 		{
 		quizzer();
-
+		System.out.println("Your score is "+(((double)numCorrect/(double)numQuestion)*100));
 		}
 
 	}

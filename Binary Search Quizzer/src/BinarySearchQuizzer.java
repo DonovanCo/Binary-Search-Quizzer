@@ -75,7 +75,7 @@ public class BinarySearchQuizzer
 				}
 			else
 				{
-				System.out.println("Incorrect!");
+				System.out.println("Incorrect! The correct answer is "+left+".");
 				numQuestion+=1;
 				}
 			
@@ -89,7 +89,7 @@ public class BinarySearchQuizzer
 				}
 			else
 				{
-				System.out.println("Incorrect!");
+				System.out.println("Incorrect! The correct answer is "+right+".");
 				numQuestion+=1;
 				}
 			
@@ -105,7 +105,7 @@ public class BinarySearchQuizzer
 				}
 			else
 				{
-				System.out.println("Incorrect!");
+				System.out.println("Incorrect! The correct answer is "+middle+".");
 				numQuestion+=1;
 				}
 			
@@ -119,7 +119,7 @@ public class BinarySearchQuizzer
 				}
 			else
 				{
-				System.out.println("Incorrect!");
+				System.out.println("Incorrect! The correct answer is "+(int)elements.get(middle)+".");
 				numQuestion+=1;
 				}
 			
